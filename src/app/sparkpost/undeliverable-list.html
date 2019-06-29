@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <form #form="ngForm" (ngSubmit)="submitForm()">
+
+  <div style="text-align:center">
+
+    <img src="/assets/images/sparkpost-logo-standard.png" style="width:200px;" />
+    <h1>Undeliverable List</h1>
+
+  </div>
+  <div>
+
+    <mat-form-field class="example-full-width"  style="padding-left:5px">
+      <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a start date" name='fromDate' [(ngModel)]="fromDate" >
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width"  style="padding-left:20px">
+      <input matInput [matDatepicker]="endDatePicker" placeholder="Choose an end date" name='toDate' [(ngModel)]="toDate" style="padding-left:10px;margin-left: 20px" >
+      <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #endDatePicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div>
+    
+    <button mat-raised-button type="submit"  style="background:#466CF8;padding-left:10px;margin-left: 20px" (click)="getCount()">
+      <i class="fa fa-refresh"></i> Get Undeliverable Recipients List
+    </button>
+  </div>
+    <hr>
+    <h2>{{undeliverable.recipient}}</h2>
+ 
+</form> 
+</body>
+</html>
